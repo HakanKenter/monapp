@@ -1,0 +1,26 @@
+{% extends 'monapp/base.html' %}
+
+{% block title %}
+    user
+{% endblock title %}
+    
+
+{% block content %}
+
+    {% for person in persons %}
+
+        <h1>{{ person.first_name }} {{ person.last_name }} </h1>
+        <p>
+            Phone: {{person.phone}}<br />
+            Interest :
+            {% for interest in person.interest.all %}
+                 {{interest}}
+            {% endfor %}
+            <br />
+                
+            Addresse: {{person.personaddress_set.all}}
+        </p>
+
+    {% endfor %}
+
+{% endblock content %}
